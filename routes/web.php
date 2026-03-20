@@ -1,17 +1,28 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProductController;
+use Illuminate\Support\Facades\Route;
 
+// Public welcome page
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('products', ProductController::class);
-Route::get('/products', [ProductController::class, 'index']);
-Route::get('/products/create', [ProductController::class, 'create']);
-Route::post('/products', [ProductController::class, 'store']);
+// Protected dashboard (redirects here after login)
+Route::get('/dashboard', function () {
+    return redirect('/products'); // Redirect to products instead of dashboard
+})->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/products/{product}/edit', [ProductController::class, 'edit']);
-Route::put('/products/{product}', [ProductController::class, 'update']);
-Route::delete('/products/{product}', [ProductController::class, 'destroy']);
+// Protected product routes (require login)
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::resource('products', ProductController::class);
+    
+    // Profile routes
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+// Authentication routes (login, register, etc.)
+require __DIR__.'/auth.php';
