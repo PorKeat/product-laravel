@@ -4,14 +4,12 @@
 
 @push('styles')
 <style>
-    /* Container */
     .container {
         max-width: 1400px;
         margin: 0 auto;
         padding: 3rem 2rem;
     }
 
-    /* Header section */
     .header {
         display: flex;
         justify-content: space-between;
@@ -21,24 +19,15 @@
     }
 
     @keyframes fadeInDown {
-        from {
-            opacity: 0;
-            transform: translateY(-30px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        from { opacity: 0; transform: translateY(-30px); }
+        to   { opacity: 1; transform: translateY(0); }
     }
 
     .page-title {
         font-family: 'Orbitron', sans-serif;
         font-size: clamp(2rem, 5vw, 3.5rem);
         font-weight: 900;
-        background: linear-gradient(135deg, 
-            #ffffff 0%, 
-            var(--neon-cyan) 50%, 
-            var(--neon-magenta) 100%);
+        background: linear-gradient(135deg, #ffffff 0%, var(--neon-cyan) 50%, var(--neon-magenta) 100%);
         background-size: 200% 200%;
         -webkit-background-clip: text;
         background-clip: text;
@@ -50,10 +39,9 @@
 
     @keyframes gradient-shift {
         0%, 100% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
+        50%       { background-position: 100% 50%; }
     }
 
-    /* Cyber button */
     .cyber-button {
         position: relative;
         padding: 1rem 2.5rem;
@@ -76,43 +64,35 @@
             0 calc(100% - 15px)
         );
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        box-shadow: 
-            0 0 20px rgba(0, 243, 255, 0.4),
-            0 4px 15px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 0 20px rgba(0, 243, 255, 0.4), 0 4px 15px rgba(0, 0, 0, 0.3);
         text-decoration: none;
         display: inline-block;
+        white-space: nowrap;
     }
 
     .cyber-button::before {
         content: '';
         position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+        top: 0; left: -100%;
+        width: 100%; height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
         transition: left 0.5s ease;
     }
 
-    .cyber-button:hover::before {
-        left: 100%;
-    }
+    .cyber-button:hover::before { left: 100%; }
 
     .cyber-button:hover {
         transform: translateY(-2px) scale(1.05);
-        box-shadow: 
-            0 0 30px rgba(0, 243, 255, 0.6),
-            0 6px 20px rgba(0, 0, 0, 0.4);
+        box-shadow: 0 0 30px rgba(0, 243, 255, 0.6), 0 6px 20px rgba(0, 0, 0, 0.4);
     }
 
-    /* Table container */
     .table-container {
         background: rgba(10, 14, 39, 0.4);
         backdrop-filter: blur(20px) saturate(180%);
         border: 1px solid rgba(0, 243, 255, 0.2);
         border-radius: 16px;
         overflow: hidden;
-        box-shadow: 
+        box-shadow:
             0 8px 32px rgba(0, 0, 0, 0.4),
             inset 0 1px 0 rgba(255, 255, 255, 0.1),
             0 0 60px rgba(0, 243, 255, 0.05);
@@ -120,21 +100,11 @@
     }
 
     @keyframes fadeInUp {
-        from {
-            opacity: 0;
-            transform: translateY(30px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        from { opacity: 0; transform: translateY(30px); }
+        to   { opacity: 1; transform: translateY(0); }
     }
 
-    /* Table */
-    table {
-        width: 100%;
-        border-collapse: collapse;
-    }
+    table { width: 100%; border-collapse: collapse; }
 
     thead {
         background: rgba(0, 243, 255, 0.05);
@@ -160,7 +130,6 @@
 
     tbody tr:hover {
         background: rgba(0, 243, 255, 0.05);
-        transform: scale(1.01);
         box-shadow: 0 4px 20px rgba(0, 243, 255, 0.1);
     }
 
@@ -169,6 +138,7 @@
         font-size: 0.95rem;
         color: rgba(255, 255, 255, 0.9);
         font-weight: 400;
+        vertical-align: middle;
     }
 
     td:first-child {
@@ -177,7 +147,6 @@
         font-weight: 600;
     }
 
-    /* Action buttons */
     .action-buttons {
         display: flex;
         gap: 0.75rem;
@@ -199,6 +168,7 @@
         text-transform: uppercase;
         letter-spacing: 0.05em;
         box-shadow: 0 0 15px rgba(255, 92, 0, 0.3);
+        white-space: nowrap;
     }
 
     .btn-edit:hover {
@@ -220,6 +190,7 @@
         text-transform: uppercase;
         letter-spacing: 0.05em;
         box-shadow: 0 0 15px rgba(255, 0, 85, 0.3);
+        white-space: nowrap;
     }
 
     .btn-delete:hover {
@@ -227,7 +198,6 @@
         box-shadow: 0 0 25px rgba(255, 0, 85, 0.5);
     }
 
-    /* Price badge */
     .price-badge {
         display: inline-block;
         padding: 0.35rem 0.85rem;
@@ -238,9 +208,9 @@
         font-family: 'Orbitron', sans-serif;
         font-weight: 700;
         font-size: 0.9rem;
+        white-space: nowrap;
     }
 
-    /* Stock indicator */
     .stock-indicator {
         display: inline-flex;
         align-items: center;
@@ -248,49 +218,41 @@
     }
 
     .stock-dot {
-        width: 8px;
-        height: 8px;
+        width: 8px; height: 8px;
         border-radius: 50%;
         background: var(--success-green);
         box-shadow: 0 0 10px var(--success-green);
         animation: pulse-dot 2s ease-in-out infinite;
+        flex-shrink: 0;
     }
 
-    .stock-dot.low {
-        background: var(--neon-orange);
-        box-shadow: 0 0 10px var(--neon-orange);
-    }
-
-    .stock-dot.out {
-        background: var(--danger-red);
-        box-shadow: 0 0 10px var(--danger-red);
-    }
+    .stock-dot.low  { background: var(--neon-orange); box-shadow: 0 0 10px var(--neon-orange); }
+    .stock-dot.out  { background: var(--danger-red);  box-shadow: 0 0 10px var(--danger-red); }
 
     @keyframes pulse-dot {
         0%, 100% { opacity: 1; }
-        50% { opacity: 0.5; }
+        50%       { opacity: 0.5; }
     }
 
-    /* Product thumbnail */
     .product-thumbnail {
-        width: 60px;
-        height: 60px;
+        width: 60px; height: 60px;
         object-fit: cover;
         border-radius: 8px;
         border: 1px solid rgba(0, 243, 255, 0.3);
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
         transition: all 0.3s ease;
+        display: block;
     }
 
     .product-thumbnail:hover {
         transform: scale(1.5);
         box-shadow: 0 4px 20px rgba(0, 243, 255, 0.4);
         z-index: 10;
+        position: relative;
     }
 
     .no-image {
-        width: 60px;
-        height: 60px;
+        width: 60px; height: 60px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -301,26 +263,22 @@
         opacity: 0.5;
     }
 
-    /* Empty state */
     .empty-state {
         text-align: center;
-        padding: 4rem 2rem;
-        color: rgba(255, 255, 255, 0.5);
+        padding: 5rem 2rem;
+        color: rgba(255, 255, 255, 0.4);
     }
 
-    .empty-state-icon {
-        font-size: 4rem;
-        margin-bottom: 1rem;
-        opacity: 0.3;
-    }
+    .empty-state-icon { font-size: 4rem; margin-bottom: 1rem; opacity: 0.3; }
 
     .empty-state-text {
         font-family: 'Outfit', sans-serif;
         font-size: 1.25rem;
         margin-bottom: 0.5rem;
+        color: rgba(255, 255, 255, 0.5);
     }
 
-    /* Delete Modal */
+    /* ── Delete Modal ── */
     .modal-overlay {
         display: none;
         position: fixed;
@@ -330,17 +288,9 @@
         z-index: 1000;
         align-items: center;
         justify-content: center;
-        animation: fadeIn 0.3s ease;
     }
 
-    .modal-overlay.active {
-        display: flex;
-    }
-
-    @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
-    }
+    .modal-overlay.active { display: flex; }
 
     .modal-content {
         background: rgba(10, 14, 39, 0.95);
@@ -350,23 +300,16 @@
         padding: 2.5rem;
         max-width: 500px;
         width: 90%;
-        box-shadow: 
+        box-shadow:
             0 20px 60px rgba(0, 0, 0, 0.6),
-            0 0 80px rgba(255, 0, 85, 0.2),
+            0 0 80px rgba(255, 0, 85, 0.15),
             inset 0 1px 0 rgba(255, 255, 255, 0.1);
         animation: modalSlideIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-        position: relative;
     }
 
     @keyframes modalSlideIn {
-        from {
-            opacity: 0;
-            transform: translateY(-50px) scale(0.9);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-        }
+        from { opacity: 0; transform: translateY(-40px) scale(0.92); }
+        to   { opacity: 1; transform: translateY(0) scale(1); }
     }
 
     .modal-header {
@@ -377,56 +320,49 @@
     }
 
     .modal-icon {
-        width: 60px;
-        height: 60px;
-        background: rgba(255, 0, 85, 0.2);
+        width: 56px; height: 56px;
+        background: rgba(255, 0, 85, 0.15);
         border: 2px solid var(--danger-red);
         border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 1.75rem;
+        font-size: 1.5rem;
+        flex-shrink: 0;
         animation: pulse-warning 2s ease-in-out infinite;
     }
 
     @keyframes pulse-warning {
-        0%, 100% {
-            box-shadow: 0 0 20px rgba(255, 0, 85, 0.4);
-        }
-        50% {
-            box-shadow: 0 0 40px rgba(255, 0, 85, 0.7);
-        }
+        0%, 100% { box-shadow: 0 0 20px rgba(255, 0, 85, 0.3); }
+        50%       { box-shadow: 0 0 40px rgba(255, 0, 85, 0.6); }
     }
 
     .modal-title {
         font-family: 'Orbitron', sans-serif;
-        font-size: 1.5rem;
+        font-size: 1.4rem;
         font-weight: 700;
         color: var(--danger-red);
         text-transform: uppercase;
         letter-spacing: 0.05em;
     }
 
-    .modal-body {
-        margin-bottom: 2rem;
-    }
+    .modal-body { margin-bottom: 2rem; }
 
     .modal-text {
         font-family: 'Outfit', sans-serif;
         font-size: 1rem;
         line-height: 1.6;
-        color: rgba(255, 255, 255, 0.8);
-        margin-bottom: 1rem;
+        color: rgba(255, 255, 255, 0.75);
     }
 
     .modal-product-name {
         font-family: 'Orbitron', sans-serif;
         color: var(--neon-cyan);
         font-weight: 700;
-        font-size: 1.1rem;
+        font-size: 1rem;
         padding: 0.75rem 1rem;
-        background: rgba(0, 243, 255, 0.1);
-        border: 1px solid rgba(0, 243, 255, 0.3);
+        background: rgba(0, 243, 255, 0.08);
+        border: 1px solid rgba(0, 243, 255, 0.25);
         border-radius: 8px;
         margin-top: 1rem;
     }
@@ -440,38 +376,38 @@
     .btn-modal-cancel {
         padding: 0.85rem 2rem;
         font-family: 'Outfit', sans-serif;
-        font-size: 0.95rem;
+        font-size: 0.9rem;
         font-weight: 600;
-        color: rgba(255, 255, 255, 0.9);
+        color: rgba(255, 255, 255, 0.8);
         background: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.15);
         border-radius: 10px;
         cursor: pointer;
-        transition: all 0.3s ease;
+        transition: all 0.25s ease;
         text-transform: uppercase;
         letter-spacing: 0.05em;
     }
 
     .btn-modal-cancel:hover {
         background: rgba(255, 255, 255, 0.1);
-        border-color: rgba(255, 255, 255, 0.4);
+        border-color: rgba(255, 255, 255, 0.35);
         transform: translateY(-2px);
     }
 
     .btn-modal-delete {
         padding: 0.85rem 2rem;
         font-family: 'Outfit', sans-serif;
-        font-size: 0.95rem;
+        font-size: 0.9rem;
         font-weight: 700;
         color: #ffffff;
         background: linear-gradient(135deg, var(--danger-red), #cc0044);
         border: none;
         border-radius: 10px;
         cursor: pointer;
-        transition: all 0.3s ease;
+        transition: all 0.25s ease;
         text-transform: uppercase;
         letter-spacing: 0.05em;
-        box-shadow: 0 0 20px rgba(255, 0, 85, 0.4);
+        box-shadow: 0 0 20px rgba(255, 0, 85, 0.35);
     }
 
     .btn-modal-delete:hover {
@@ -479,74 +415,33 @@
         box-shadow: 0 0 35px rgba(255, 0, 85, 0.6);
     }
 
-    /* Responsive */
     @media (max-width: 1024px) {
-        .table-container {
-            overflow-x: auto;
-        }
-
-        table {
-            min-width: 800px;
-        }
+        .table-container { overflow-x: auto; }
+        table { min-width: 800px; }
     }
 
     @media (max-width: 768px) {
-        .container {
-            padding: 2rem 1rem;
-        }
-
-        .header {
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 1rem;
-        }
-
-        .cyber-button {
-            width: 100%;
-        }
-
-        th, td {
-            padding: 1rem;
-            font-size: 0.85rem;
-        }
-
-        .action-buttons {
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-
-        .btn-edit, .btn-delete {
-            width: 100%;
-            text-align: center;
-        }
-
-        .modal-content {
-            padding: 2rem 1.5rem;
-        }
-
-        .modal-actions {
-            flex-direction: column-reverse;
-        }
-
-        .btn-modal-cancel,
-        .btn-modal-delete {
-            width: 100%;
-        }
+        .container { padding: 2rem 1rem; }
+        .header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+        .cyber-button { width: 100%; text-align: center; }
+        th, td { padding: 1rem; font-size: 0.85rem; }
+        .action-buttons { flex-direction: column; gap: 0.5rem; }
+        .btn-edit, .btn-delete { width: 100%; text-align: center; }
+        .modal-content { padding: 2rem 1.5rem; }
+        .modal-actions { flex-direction: column-reverse; }
+        .btn-modal-cancel, .btn-modal-delete { width: 100%; text-align: center; }
     }
 </style>
 @endpush
 
 @section('content')
 <div class="container">
-    <!-- Header -->
+
     <div class="header">
         <h1 class="page-title">Product List</h1>
-        <a href="/products/create" class="cyber-button">
-            + Create Product
-        </a>
+        <a href="/products/create" class="cyber-button">+ Create Product</a>
     </div>
 
-    <!-- Products Table -->
     <div class="table-container">
         @if(count($products) > 0)
             <table>
@@ -586,13 +481,11 @@
                             <td>
                                 <div class="action-buttons">
                                     <a href="/products/{{ $product->id }}/edit" class="btn-edit">Edit</a>
-                                    <button 
-                                        type="button" 
-                                        class="btn-delete" 
+                                    <button
+                                        type="button"
+                                        class="btn-delete"
                                         onclick="openDeleteModal({{ $product->id }}, '{{ addslashes($product->name) }}')"
-                                    >
-                                        Delete
-                                    </button>
+                                    >Delete</button>
                                 </div>
                             </td>
                         </tr>
@@ -609,7 +502,7 @@
     </div>
 </div>
 
-<!-- Delete Confirmation Modal -->
+{{-- Delete Confirmation Modal --}}
 <div class="modal-overlay" id="deleteModal">
     <div class="modal-content">
         <div class="modal-header">
@@ -617,24 +510,17 @@
             <h2 class="modal-title">Delete Product</h2>
         </div>
         <div class="modal-body">
-            <p class="modal-text">
-                Are you sure you want to delete this product? This action cannot be undone.
-            </p>
+            <p class="modal-text">Are you sure you want to delete this product? This action cannot be undone.</p>
             <div class="modal-product-name" id="modalProductName"></div>
         </div>
         <div class="modal-actions">
-            <button type="button" class="btn-modal-cancel" onclick="closeDeleteModal()">
-                Cancel
-            </button>
-            <button type="button" class="btn-modal-delete" onclick="confirmDelete()">
-                Delete Product
-            </button>
+            <button type="button" class="btn-modal-cancel" onclick="closeDeleteModal()">Cancel</button>
+            <button type="button" class="btn-modal-delete" onclick="confirmDelete()">Delete Product</button>
         </div>
     </div>
 </div>
 
-<!-- Hidden form for delete -->
-<form id="deleteForm" method="POST" style="display: none;">
+<form id="deleteForm" method="POST" style="display:none;">
     @csrf
     @method('DELETE')
 </form>
@@ -665,26 +551,18 @@
         }
     }
 
-    // Close modal on overlay click
-    document.getElementById('deleteModal').addEventListener('click', function(e) {
-        if (e.target === this) {
-            closeDeleteModal();
-        }
+    document.getElementById('deleteModal').addEventListener('click', function (e) {
+        if (e.target === this) closeDeleteModal();
     });
 
-    // Close modal on Escape key
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-            closeDeleteModal();
-        }
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closeDeleteModal();
     });
 
-    // Add stagger animation to table rows
     document.addEventListener('DOMContentLoaded', () => {
-        const rows = document.querySelectorAll('tbody tr');
-        rows.forEach((row, index) => {
+        document.querySelectorAll('tbody tr').forEach((row, i) => {
             row.style.opacity = '0';
-            row.style.animation = `fadeInUp 0.5s ease ${0.4 + (index * 0.1)}s forwards`;
+            row.style.animation = `fadeInUp 0.5s ease ${0.4 + i * 0.07}s forwards`;
         });
     });
 </script>

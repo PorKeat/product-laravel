@@ -4,20 +4,6 @@
 
 @push('styles')
 <style>
-    /* Orb color overrides for create page */
-    .orb-1 {
-        background: var(--neon-cyan);
-        top: 15%;
-        left: 10%;
-    }
-
-    .orb-2 {
-        background: var(--neon-orange);
-        bottom: 20%;
-        right: 15%;
-        animation-delay: 10s;
-    }
-
     .container {
         max-width: 800px;
         margin: 0 auto;

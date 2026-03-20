@@ -4,35 +4,6 @@
 
 @push('styles')
 <style>
-    :root {
-        --neon-orange: #ff5c00;
-        --deep-navy: #0a0e27;
-        --midnight: #020614;
-        --electric-blue: #0066ff;
-        --neon-magenta: #ff006e;
-        --neon-cyan: #00f3ff;
-        --success-green: #00ff9f;
-        --danger-red: #ff0055;
-    }
-
-    /* Floating orbs override for edit page */
-    .orb-1 {
-        width: 350px;
-        height: 350px;
-        background: var(--neon-magenta);
-        top: 15%;
-        left: 10%;
-    }
-
-    .orb-2 {
-        width: 300px;
-        height: 300px;
-        background: var(--electric-blue);
-        bottom: 20%;
-        right: 15%;
-        animation-delay: 10s;
-    }
-
     /* Container */
     .container {
         max-width: 800px;
@@ -224,28 +195,6 @@
         opacity: 0.5;
         font-size: 1.2rem;
         pointer-events: none;
-    }
-
-    .edit-indicator {
-        position: absolute;
-        top: -0.5rem;
-        right: -0.5rem;
-        background: var(--neon-orange);
-        color: var(--midnight);
-        padding: 0.35rem 0.85rem;
-        border-radius: 20px;
-        font-family: 'Orbitron', sans-serif;
-        font-size: 0.7rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
-        box-shadow: 0 0 20px rgba(255, 92, 0, 0.6);
-        animation: pulse-badge 2s ease-in-out infinite;
-    }
-
-    @keyframes pulse-badge {
-        0%, 100% { transform: scale(1); }
-        50%       { transform: scale(1.05); }
     }
 
     .btn-update {
@@ -441,8 +390,6 @@
 
     <!-- Form Container -->
     <div class="form-container">
-        <div class="edit-indicator">Editing Mode</div>
-
         <form method="POST" action="/products/{{ $product->id }}" id="productForm" enctype="multipart/form-data">
             @csrf
             @method('PUT')
